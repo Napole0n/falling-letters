@@ -3,6 +3,7 @@ package mgsoft.fallingletters.views;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -21,6 +22,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import mgsoft.fallingletters.common.Config;
+import mgsoft.fallingletters.engine.Engine;
+import mgsoft.fallingletters.engine.scene.GameSceneFactory;
 import mgsoft.fallingletters.engine.view.View;
 
 public class MenuView extends View{
@@ -48,7 +51,11 @@ public class MenuView extends View{
 		btn.setBackground(new Background(new BackgroundFill(Color.rgb(28, 185, 159), new CornerRadii(40), new Insets(3))));
 		btn.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, new CornerRadii(15), BorderWidths.DEFAULT)));
 		btn.setOnMouseClicked(e -> {
-		    System.out.println("Clicou");
+		    Platform.runLater(new Runnable() {
+				public void run() {
+					Engine.getInstance().setGameScene(GameSceneFactory.getMainGameScene());
+				}
+			});
 		});
 		return btn;
 	}

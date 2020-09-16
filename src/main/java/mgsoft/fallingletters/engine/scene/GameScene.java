@@ -12,4 +12,7 @@ public class GameScene extends Scene{
 		return (GamePane) this.getRoot();
 	}
 	
+	public void start() {
+	}
+	
 }

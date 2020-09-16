@@ -3,6 +3,7 @@ package mgsoft.fallingletters.engine;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.stage.Stage;
 import mgsoft.fallingletters.engine.scene.GamePane;
 import mgsoft.fallingletters.engine.scene.GameScene;
 
@@ -11,6 +12,8 @@ public class Engine {
 	private MasterClock masterClock;
 	
 	private GameScene scene;
+
+	private Stage gameStage;
     
 	private static Engine instance;
 	
@@ -34,6 +37,7 @@ public class Engine {
 	}
 	
 	public void setGameScene(GameScene scene) {
+		this.gameStage.setScene(scene);
 		this.scene = scene;
 	}
 	
@@ -43,6 +47,10 @@ public class Engine {
 	
 	public GamePane getGamePane() {
 		return (GamePane) this.scene.getRoot();
+	}
+	
+	public MasterClock getMasterClock() {
+		return this.masterClock;
 	}
 	
 	private void startGameClock() {
@@ -56,15 +64,18 @@ public class Engine {
 	
 	private static MasterClock createMasterClock() {
 		MasterClock masterClock = new MasterClock();
-		List<Tickable> tickListeners = new ArrayList<>();
-		Registry.registerTickables(tickListeners);
-		for(Tickable tickable : tickListeners) {
-			masterClock.registraTickListener(tickable);
-		}
 		return masterClock;
 	}
 	
 	private void setMasterClock(MasterClock masterClock) {
 		this.masterClock = masterClock;
+	}
+
+	public Stage getGameStage() {
+		return gameStage;
+	}
+
+	public void setGameStage(Stage gameStage) {
+		this.gameStage = gameStage;
 	}
 }

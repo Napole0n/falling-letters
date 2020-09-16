@@ -43,6 +43,7 @@ public class Config {
 	
 	public static final Insets INSETS_LAYOUT_PADRAO = new Insets(1);
 	
+	public static final double VELOCIDADE_LETRAS_BASE = 0.2;
 
 	
 	/**

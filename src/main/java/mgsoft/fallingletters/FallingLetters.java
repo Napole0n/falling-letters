@@ -10,19 +10,20 @@ import mgsoft.fallingletters.engine.scene.GameScene;
 import mgsoft.fallingletters.views.MenuView;
 
 public class FallingLetters extends Application{
-
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setResizable(false); 
-		GameScene scene = createScene();
-		primaryStage.setScene(scene);
+		GameScene startScene = createStartMenuGameScene();
+		primaryStage.setScene(startScene);
 		Engine engine = Engine.getInstance();
+		engine.setGameStage(primaryStage);
 		engine.startGame();
 		primaryStage.show();
 		primaryStage.setTitle(Config.TITULO_JANELA);
 	}
 	
-	private GameScene createScene() {
+	private GameScene createStartMenuGameScene() {
 		GamePane gamePane  = new GamePane(Config.ALTURA_TELA, Config.LARGURA_TELA, Config.COR_DE_FUNDO);
 		GameScene gameScene = new GameScene(gamePane);
 		MenuView menu = new MenuView();
