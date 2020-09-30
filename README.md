@@ -1,6 +1,6 @@
 ## Falling Letters
 
-Um pequeno jogo feito apenas com JavaFX e Java.
+Um pequeno jogo feito com JavaFX e Java.
 
 Feito para a matéria de Fundamentos de Engenharia de Software na UDESC.
 
