@@ -37,7 +37,7 @@ public class MasterClock extends AnimationTimer {
 		acumuladorDeTempo += tempoDecorrido;
 
 	    tempoControle = agora;
-        tick();
+        tick(agora);
 
 		if (acumuladorDeTempo >= 1000) {
 			printTps();
@@ -49,10 +49,10 @@ public class MasterClock extends AnimationTimer {
 	/**
 	 * Executa um 'Tick' ou 'Ciclo' da engine
 	 */
-	private void tick() {
+	private void tick(long time) {
 		contadorTps++;
 		for (Tickable tickable : this.tickListeners) {
-			tickable.tick();
+			tickable.tick(time);
 		}
 	}
 

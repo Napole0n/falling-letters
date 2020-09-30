@@ -12,10 +12,10 @@ public abstract class Tickable {
 		this.setup();
 	}
 	
-	public void tick() {
+	public void tick(long time) {
 		tickCount++;
 		if(tickCount == getTickFrequence()) {
-			update();
+			update(time);
 			tickCount = 0;
 		}
 	}
@@ -28,7 +28,7 @@ public abstract class Tickable {
 	 */
 	protected abstract int getTickFrequence();
 	
-	public abstract void update();
+	public abstract void update(long time);
 
 	public GamePane getTargetPane() {
 		return targetPane;

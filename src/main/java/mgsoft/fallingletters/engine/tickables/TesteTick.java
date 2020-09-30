@@ -15,7 +15,7 @@ public class TesteTick extends Tickable{
 	}
 
 	@Override
-	public void update() {
+	public void update(long time) {
      
 	}
 
